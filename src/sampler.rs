@@ -219,7 +219,7 @@ impl Sampler {
                     let process = process_info
                         .entry(pid)
                         .or_insert_with(|| get_process_info(pid, &spies).map(|p| Arc::new(*p)));
-                    trace.process_info = process.clone();
+                    #[allow(clippy::assigning_clones)] trace.process_info = process.clone();
                 }
 
                 // Send the collected info back

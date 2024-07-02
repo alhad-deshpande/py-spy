@@ -422,7 +422,7 @@ impl Config {
         }
 
         config.subprocesses = matches.occurrences_of("subprocesses") > 0;
-        config.command = subcommand.to_owned();
+        #[allow(clippy::assigning_clones)] config.command = subcommand.to_owned();
 
         // options that can be shared between subcommands
         config.pid = matches
