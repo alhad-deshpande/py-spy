@@ -182,4 +182,3 @@ pub fn parse_binary(filename: &Path, addr: u64, size: u64) -> Result<BinaryInfo,
         _ => Err(format_err!("Unhandled binary type")),
     }
 }
-use std::collections::HashMap;
