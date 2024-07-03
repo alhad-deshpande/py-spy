@@ -34,7 +34,8 @@ impl SourceMaps {
         if let Some(map) = self.maps.get(&frame.filename) {
             if let Some(map) = map {
                 if let Some((file, line)) = map.lookup(line) {
-                    #[allow(clippy::assigning_clones)] frame.filename = file.clone();
+                    #[allow(clippy::assigning_clones)]
+                    frame.filename = file.clone();
                     frame.line = *line as i32;
                 }
             }
