@@ -6,6 +6,7 @@ use anyhow::Error;
 use goblin::Object;
 use memmap::Mmap;
 
+#[allow(dead_code)]
 pub struct BinaryInfo {
     pub filename: std::path::PathBuf,
     pub symbols: HashMap<String, u64>,
@@ -102,7 +103,6 @@ pub fn parse_binary(filename: &Path, addr: u64, size: u64) -> Result<BinaryInfo,
                         .map_or(true, |name| name == ".bss")
                 })
                 // if we have multiple sections here, take the largest
-                .max_by_key(|header| header.sh_size)
                 .ok_or_else(|| {
                     format_err!(
                         "Failed to find BSS section header in {}",
@@ -182,3 +182,4 @@ pub fn parse_binary(filename: &Path, addr: u64, size: u64) -> Result<BinaryInfo,
         _ => Err(format_err!("Unhandled binary type")),
     }
 }
+use std::collections::HashMap;
