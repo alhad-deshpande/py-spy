@@ -33,6 +33,7 @@ dependencies = [
  "getrandom",
  "once_cell",
  "version_check",
+ "zerocopy",
 ]
 
 [[package]]
