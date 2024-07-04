@@ -97,7 +97,7 @@ pub fn parse_binary(filename: &Path, addr: u64, size: u64) -> Result<BinaryInfo,
                 .iter()
                 // filter down to things that are both NOBITS sections and are named .bss
                 .filter(|header| header.sh_type == goblin::elf::section_header::SHT_NOBITS)
-                .filter(|header| {
+                .find(|header| {
                     strtab
                         .get_at(header.sh_name)
                         .map_or(true, |name| name == ".bss")
