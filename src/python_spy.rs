@@ -32,8 +32,6 @@ pub struct PythonSpy {
     pub version: Version,
     pub interpreter_address: usize,
     pub threadstate_address: usize,
-    pub python_filename: std::path::PathBuf,
-    pub version_string: String,
     pub config: Config,
     #[cfg(unwind)]
     pub native: Option<NativeStack>,

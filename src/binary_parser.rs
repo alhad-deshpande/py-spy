@@ -7,11 +7,9 @@ use goblin::Object;
 use memmap::Mmap;
 
 pub struct BinaryInfo {
-    pub filename: std::path::PathBuf,
     pub symbols: HashMap<String, u64>,
     pub bss_addr: u64,
     pub bss_size: u64,
-    pub offset: u64,
     pub addr: u64,
     pub size: u64,
 }
